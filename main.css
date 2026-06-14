@@ -12,8 +12,8 @@ body {
 
 #heart {
     width: clamp(120px, 25vw, 280px);
-    animation: heartbeat 1.1s ease-in-out infinite;
     mix-blend-mode: color-dodge;
+    animation: heartbeat 950ms ease-out infinite;
 }
 
 @keyframes heartbeat {

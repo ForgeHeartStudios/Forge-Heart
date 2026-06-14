@@ -17,7 +17,20 @@
 
     <link rel="icon" type="image/x-icon" href="https://www.forgeheart.org/forge-heart.png">
 
-    <link rel="stylesheet" href="https://www.forgeheart.org/main.css">
+    <link rel="stylesheet" href="main.css">
+
+    <style>
+        body {
+          opacity: 0;
+          visibility: hidden;
+        }
+      
+        body.loaded {
+          opacity: 1;
+          visibility: visible;
+          transition: opacity 0.3s ease;
+        }
+      </style>
 </head>
 
 <body>
