@@ -15,22 +15,64 @@
     <meta property="og:image" content="https://www.forgeheart.org/forge-heart.png">
     <meta property="og:url" content="https://www.forgeheart.org/">
 
-    <link rel="icon" type="image/x-icon" href="https://www.forgeheart.org/forge-heart.png">
-
-    <link rel="stylesheet" href="https://www.forgeheart.org/main.css">
+    <link rel="icon" href="https://www.forgeheart.org/forge-heart.png">
 
     <style>
+        html,
         body {
-          opacity: 0;
-          visibility: hidden;
+            height: 100%;
+            margin: 0;
         }
-      
+
+        body {
+            background-image: linear-gradient(to bottom,
+                    #111111 0%,
+                    #0e0e0e 75%,
+                    #080808 100%);
+
+            display: grid;
+            place-items: center;
+            opacity: 0;
+            visibility: hidden;
+        }
+
         body.loaded {
-          opacity: 1;
-          visibility: visible;
-          transition: opacity 0.3s ease;
+            opacity: 1;
+            visibility: visible;
+            transition: opacity 0.3s ease;
         }
-      </style>
+
+        img {
+            mix-blend-mode: color-dodge;
+        }
+
+        #heart {
+            width: clamp(120px, 25vw, 280px);
+            animation: heartbeat 950ms ease-out infinite;
+        }
+
+        @keyframes heartbeat {
+            0% {
+                transform: scaleY(1.4) scaleX(1.6);
+                filter: brightness(0.9) drop-shadow(0px 0px 0.3rem rgb(255, 255, 255));
+            }
+
+            25% {
+                transform: scaleY(1.6) scaleX(2);
+                filter: brightness(1.25) drop-shadow(0px 0px 0.6rem rgb(255, 0, 0));
+            }
+
+            75% {
+                transform: scaleY(1.2) scaleX(1.8);
+                filter: brightness(1) drop-shadow(0px 0px 0.4rem rgb(255, 255, 255));
+            }
+
+            100% {
+                transform: scaleY(1.4) scaleX(1.6);
+                filter: brightness(0.8) drop-shadow(0px 0px 0.2rem rgb(255, 255, 255));
+            }
+        }
+    </style>
 </head>
 
 <body>
@@ -38,7 +80,12 @@
         <img src="https://www.forgeheart.org/forge-heart.png" id="heart">
     </main>
 
-    <script src="logic.js">
+    <script>
+        window.addEventListener("load", () => {
+            document.body.classList.add("loaded");
+        });
+
+        console.log('This is The Forge-Heart, of love.')
     </script>
 </body>
 
